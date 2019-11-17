@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">WeTranslate</string>
+    <string-array name="languages">
+        <item>be-Belarusian</item>
+        <item>ca-Catalan</item>
+        <item>cs-Czech</item>
+        <item>da-Danish</item>
+        <item>de-German</item>
+        <item>el-Greek</item>
+        <item>es-Spanish</item>
+        <item>et-Estonian</item>
+        <item>fi-Finnish</item>
+        <item>fr-French</item>
+        <item>hu-Hungarian</item>
+        <item>it-Italian</item>
+        <item>lt-Lithuanian</item>
+        <item>lv-Latvian</item>
+        <item>mk-Macedonian</item>
+        <item>nl-Dutch</item>
+        <item>pt-Portuguese</item>
+        <item>ru-Russian</item>
+        <item>sk-Slovak</item>
+        <item>sl-Slovenian</item>
+        <item>sq-Albanian</item>
+        <item>sv-Swedish</item>
+        <item>tr-Turkish</item>
+        <item>uk-Ukrainian</item>
+    </string-array>
+</resources>
