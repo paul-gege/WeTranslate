@@ -82,6 +82,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, OcrTranslate.class);
+                intent.putExtra("end_lang", end_lang);
                 startActivityForResult(intent, 1);
             }
         });

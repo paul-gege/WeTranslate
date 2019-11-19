@@ -41,27 +41,27 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center">
+        android:gravity="center"
+        android:orientation="horizontal">
 
         <Button
+            android:id="@+id/view_fav"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="View Favorites"
-            android:id="@+id/view_fav"/>
+            android:text="View Favorites" />
 
         <Button
+            android:id="@+id/add_fav"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Add Favorite"
-            android:id="@+id/add_fav"/>
+            android:text="Add Favorite" />
+
+        <Button
+            android:id="@+id/ocr_translate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Camera" />
 
     </LinearLayout>
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="OCR Translate"
-        android:id="@+id/ocr_translate"/>
 
 </LinearLayout>

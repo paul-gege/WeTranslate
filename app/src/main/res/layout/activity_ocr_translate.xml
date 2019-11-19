@@ -10,7 +10,15 @@
     <SurfaceView
         android:id="@+id/surface_view"
         android:layout_width="match_parent"
-        android:layout_height="500dp"/>
+        android:layout_height="465dp" />
+
+    <Button
+        android:layout_gravity="center"
+        android:id="@+id/stop"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Capture Image"/>
 
     <TextView
         android:layout_width="match_parent"
