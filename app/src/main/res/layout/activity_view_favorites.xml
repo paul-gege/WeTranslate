@@ -1,21 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/White"
     tools:context=".ViewFavorites">
 
     <ListView
+        android:divider="@null"
+        android:layout_margin="16dp"
+        android:background="@color/White"
+        android:layout_above="@id/back_btn"
         android:layout_width="match_parent"
-        android:layout_height="450dp"
+        android:layout_height="match_parent"
         android:id="@+id/favorites_list"/>
 
     <Button
+        android:background="@color/colorPrimary"
+        android:textColor="@color/White"
+        android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Back"
         android:id="@+id/back_btn"/>
 
-</LinearLayout>
+</RelativeLayout>

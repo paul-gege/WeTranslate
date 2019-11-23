@@ -4,27 +4,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".OcrTranslate">
+    tools:context=".SplashScreen"
+    android:layout_gravity="center"
+    android:background="@drawable/gradient_list"
+    android:id="@+id/layout"
+    android:gravity="center"
+    android:orientation="vertical">
 
-    <SurfaceView
-        android:id="@+id/surface_view"
-        android:layout_width="match_parent"
-        android:layout_height="465dp" />
-
-    <Button
-        android:layout_gravity="center"
-        android:id="@+id/stop"
-        android:gravity="center"
+    <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Capture Image"/>
+        android:src="@drawable/demo" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/text_view"
-        android:text="No Text"/>
+        android:text="WeTranslate"
+        android:textAlignment="center"
+        android:textColor="#FFF"
+        android:textSize="25sp"
+        android:textStyle="bold" />
 
 
 </LinearLayout>
