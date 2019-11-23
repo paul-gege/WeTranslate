@@ -4,12 +4,16 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.speech.tts.TextToSpeech;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -18,21 +22,25 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
+
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     Spinner translate_to;
-    Button translate_btn;
-    Button view_favorites;
-    Button add_favorites;
     Button ocr_translate;
+    FloatingActionButton translate_btn, btConvert, add_favorites;
     EditText input_trans;
-    EditText result_trans;
+    TextView result_trans;
     String end_lang;
+
+    TextToSpeech textToSpeech;
 
     private DatabaseHelper my_db;
 
@@ -44,21 +52,34 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        translate_btn = (Button) findViewById(R.id.translate_btn);
+        translate_btn = (FloatingActionButton) findViewById(R.id.translate_btn);
         input_trans = (EditText) findViewById(R.id.trans_input);
-        result_trans = (EditText) findViewById(R.id.trans_result);
-        my_db = new DatabaseHelper(this);
+        btConvert = (FloatingActionButton) findViewById(R.id.btConvert);
+        result_trans = (TextView) findViewById(R.id.trans_result);
 
-
-        view_favorites = (Button) findViewById(R.id.view_fav);
-        view_favorites.setOnClickListener(new View.OnClickListener() {
+        textToSpeech = new TextToSpeech(getApplicationContext()
+                , new TextToSpeech.OnInitListener() {
             @Override
-            public void onClick(View view) {
-                Intent intent  = new Intent(MainActivity.this, ViewFavorites.class);
-                startActivity(intent);
+            public void onInit(int i) {
+                if (i == TextToSpeech.SUCCESS){
+                    int lang = textToSpeech.setLanguage(Locale.FRENCH);
+                }
             }
         });
-        add_favorites = (Button) findViewById(R.id.add_fav);
+
+        btConvert.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String s = result_trans.getText().toString();
+                int speech = textToSpeech.speak(s, TextToSpeech.QUEUE_FLUSH, null);
+            }
+        });
+
+
+
+        my_db = new DatabaseHelper(this);
+
+        add_favorites = (FloatingActionButton) findViewById(R.id.add_fav);
         add_favorites.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -148,5 +169,26 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
 
+    }
+
+    // create an action bar button
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // R.menu.mymenu is a reference to an xml file named mymenu.xml which should be inside your res/menu directory.
+        // If you don't have res/menu, just create a directory named "menu" inside res
+        getMenuInflater().inflate(R.menu.my_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    // handle button activities
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.view_fav) {
+            Intent intent  = new Intent(MainActivity.this, ViewFavorites.class);
+            startActivity(intent);
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
