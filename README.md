@@ -6,6 +6,8 @@ Translation application with abilities to translate from a select range of langu
 
 ![alt text](https://github.com/paul-gege/WeTranslate/raw/master/app_screen.png)
 
+![alt text](https://github.com/paul-gege/WeTranslate/blob/master/ocr_screen.png)
+
 ## Getting Started
 
 ### Executing program
